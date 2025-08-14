@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post</title>
+    <link rel="stylesheet" href="{% static 'post/style1.css' %}">
+</head>
+<body>
+    <h2>Create Post</h2>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <!-- User selection -->
+    <label for="user">Select User:</label>
+    <select name="user" required>
+        <option value="">-- Choose a user --</option>
+        {% for u in users %}
+            <option value="{{ u.id }}">{{ u.username }} ({{ u.name }})</option>
+        {% endfor %}
+    </select>
+    <br><br>
+
+    {{ post_form.as_p }}
+
+    <label for="media_files">Upload Media:</label>
+    <input type="file" name="media_files" multiple>
+    <br><br>
+
+    <button type="submit">Create Post</button>
+</form>
+
+</body>
+</html>

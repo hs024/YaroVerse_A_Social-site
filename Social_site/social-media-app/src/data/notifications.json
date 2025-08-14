@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "userId": 1,
+    "type": "like",
+    "fromUserId": 2,
+    "postId": 1,
+    "message": "janedoe liked your post.",
+    "timestamp": "2025-08-05T10:30:00Z",
+    "read": false
+  },
+  {
+    "id": 2,
+    "userId": 1,
+    "type": "comment",
+    "fromUserId": 3,
+    "postId": 1,
+    "message": "bobsmith commented: 'Awesome!'",
+    "timestamp": "2025-08-05T11:00:00Z",
+    "read": false
+  },
+  {
+    "id": 3,
+    "userId": 1,
+    "type": "friend",
+    "fromUserId": 2,
+    "message": "janedoe sent you a friend request.",
+    "timestamp": "2025-08-05T12:00:00Z",
+    "read": false
+  }
+]

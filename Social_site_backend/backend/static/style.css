@@ -1,0 +1,82 @@
+/* Table container */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+    /* Equal column width */
+    table-layout: fixed;
+}
+
+/* Equal column width */
+th,
+td {
+    width: 12.5%;
+    /* 100% ÷ 8 columns = 12.5% each */
+    text-align: center;
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    word-wrap: break-word;
+}
+
+/* Header styling */
+th {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 15px;
+}
+
+/* Row hover effect */
+tr:hover {
+    background-color: #f9f9f9;
+    transition: background 0.3s ease;
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #45a049, #3d8b40);
+    transform: translateY(-2px);
+}
+
+button a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Page background */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(120deg, #f0f4f8, #d9e4ec);
+}
+
+/* Avatar images */
+td img {
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    transition: transform 0.3s ease;
+}
+
+td img:hover {
+    transform: scale(1.1);
+}

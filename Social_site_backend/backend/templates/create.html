@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User</title>
+    <link rel="stylesheet" href="{% static 'style2.css' %}">
+    
+</head>
+<body>
+<div class="container">
+    <h1>Create New User</h1>
+    <a href="{% url 'home' %}" class="btn" style="margin-bottom: 15px;">Home</a>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <label>Username</label>
+        <input type="text" name="username" required>
+        <label>Name</label>
+        <input type="text" name="name" required>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Bio</label>
+        <textarea name="bio"></textarea>
+
+        <label>Avatar</label>
+        <img id="avatarPreview" src="{% static 'avatar.png' %}" alt="Default avatar" width="80" height="80">
+        <input type="file" name="avatar" id="avatarInput" accept="image/*">
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <label>Friends</label>
+        <select name="friends" multiple size="5" id="friends">
+            {% for f in all_users %}
+                <option value="{{ f.id }}">{{ f.username }}</option>
+            {% endfor %}
+        </select>
+        <p style="font-size: 12px; color: gray;">
+            Click to toggle selection (no Ctrl needed)
+        </p>
+
+        <button type="submit" class="btn">Create User</button>
+    </form>
+</div>
+
+<script>
+    // Avatar preview
+    document.getElementById('avatarInput').addEventListener('change', function(event) {
+        const [file] = event.target.files;
+        if (file) {
+            document.getElementById('avatarPreview').src = URL.createObjectURL(file);
+        }
+    });
+
+    // Multi-select toggle without Ctrl
+    document.querySelectorAll("#friends option").forEach(option => {
+        option.addEventListener("mousedown", function(e) {
+            e.preventDefault();
+            this.selected = !this.selected;
+            return false;
+        });
+    });
+</script>
+</body>
+</html>

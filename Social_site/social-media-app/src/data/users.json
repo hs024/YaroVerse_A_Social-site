@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "username": "johndoe",
+    "name": "John Doe",
+    "email": "john@example.com",
+    "avatar":"/assets/sun.jpeg",
+    "bio": "Web developer and coffee enthusiast.",
+    "friends": [2, 3]
+  },
+  {
+    "id": 2,
+    "username": "janedoe",
+    "name": "Jane Doe",
+    "email": "jane@example.com",
+    "bio": "Photographer & traveler.",
+    "friends": [1]
+  },
+  {
+    "id": 3,
+    "username": "bobsmith",
+    "name": "Bob Smith",
+    "email": "bob@example.com",
+    "bio": "Music lover and blogger.",
+    "friends": [1]
+  }
+  ,{
+    "id": 4,
+    "username": "link",
+    "name": "Zelda",
+    "email": "zelda@example.com",
+    "avatar":"/assets/sun.jpeg",
+    "bio": "Gammer and king.",
+    "friends": []
+  }
+]

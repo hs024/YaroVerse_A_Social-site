@@ -1,0 +1,126 @@
+/* Global styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #fdfbfb, #ebedee);
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Page heading */
+h2,
+h1 {
+    text-align: center;
+    color: #4a4a4a;
+    margin-bottom: 20px;
+}
+
+/* Form container */
+form {
+    background: #fff;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Labels */
+label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0 5px;
+}
+
+/* Select & input styles */
+input[type="text"],
+input[type="file"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #6c63ff;
+    outline: none;
+    box-shadow: 0px 0px 6px rgba(108, 99, 255, 0.4);
+}
+
+/* Button styles */
+button {
+    background: linear-gradient(135deg, #6c63ff, #857fff);
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #574ee3, #6c63ff);
+    transform: translateY(-2px);
+}
+
+/* Success/error messages */
+.success {
+    background: #e0ffe0;
+    border: 1px solid #00cc44;
+    color: #006622;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.error {
+    background: #ffe0e0;
+    border: 1px solid #ff4d4d;
+    color: #cc0000;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+/* Post cards for list page */
+.post-card {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.post-card img,
+.post-card video {
+    border-radius: 8px;
+    margin-top: 10px;
+    max-width: 100%;
+}
+
+/* Search bar style */
+.search-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-container input[type="text"] {
+    width: 60%;
+    max-width: 300px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.search-container button {
+    width: auto;
+    padding: 10px 15px;
+}

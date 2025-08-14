@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Posts</title>
+    <link rel="stylesheet" href="{% static 'post/style.css' %}">
+</head>
+<body>
+<div class="container">
+    <h1>All Posts</h1>
+<button><a href="{% url 'home' %}">home</a></button>
+    <a href="{% url 'create_post' %}" class="btn">Create New Post</a><br>
+    <form method="get" action="" style="margin-top: 15px; display: flex; gap: 10px; align-items: center;">
+    <input type="text" name="username" placeholder="Search by username..." 
+           value="{{ request.GET.username }}" style="flex: 1;">
+    <button type="submit" class="btn">Search</button>
+    {% if request.GET.username %}
+        <a href="{% url 'list_posts' %}" class="btn" style="background: #ccc; color: #333;">Clear</a>
+    {% endif %}
+</form>
+    <br>
+    <hr>
+
+    {% for post in posts %}
+        <div class="post-card">
+            <p>
+                <h2>
+<b>{{ post.user.username }}</b>
+                </h2>
+                <b>
+
+                    Created at- {{ post.created_at }}</p>
+                </b>
+            <b>PostId : {{post.id}}</b>
+            <p><b>Content : </b>{{ post.content }}</p>
+                <div class="mediaclass">
+
+                    {% for media in post.media.all %}
+                    {% if media.type == 'image' %}
+                    <img src="{{ media.file.url }}" class="imgclass">
+                    {% elif media.type == 'video' %}
+                    <video controls>
+                        <source src="{{ media.file.url }}" type="video/mp4">
+                    </video>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            <hr>
+            <b>Likes: {{ post.likes.count }} {{post.likes_count}}</b>
+            <div style="display:flex;gap:8px;">
+
+                {% for liker in post.likes.all %}
+                <div >
+                   {% if liker.avatar %}
+        <img src="{{ liker.avatar.url }}" alt="{{ liker.username }}'s avatar" width="50" height="50">
+    {% else %}
+        <img src="{% static 'avatar.png' %}" alt="Default avatar" width="50" height="50">
+    {% endif %}
+                    {{ liker.username }} {{liker.id}}
+                    
+                </div>
+                {% empty %}
+                <p>No likes yet.</p>
+                {% endfor %}
+            </div>
+
+
+            <!-- Like form -->
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="post_id" value="{{ post.id }}">
+                <select name="user" required>
+                    <option value="">-- Select user to like --</option>
+                    {% for u in users %}
+                        <option value="{{ u.id }}">{{ u.username }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" name="like_post">Like</button>
+                
+            </form>
+<hr>
+            <!-- Comment form -->
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="post_id" value="{{ post.id }}">
+                <select name="user" required>
+                    <option value="">-- Select user to comment --</option>
+                    {% for u in users %}
+                        <option value="{{ u.id }}">{{ u.username }}</option>
+                    {% endfor %}
+                </select>
+                <input type="text" name="comment_content" placeholder="Write a comment..." required>
+                <button type="submit" name="comment_post">Comment</button>
+            </form>
+
+            <!-- Show comments -->
+            <div class="comments">
+                {% for comment in post.comments.all %}
+                    <p>id : {{comment.id}} ,<b> User:{{ comment.user.username }}</b>: {{ comment.text }}</p>
+                {% empty %}
+                    <p>No comments yet.</p>
+                {% endfor %}
+            </div>
+
+            <!-- Delete -->
+            <form method="post" action="{% url 'delete_post' post.id %}">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+                <button><a href="{% url 'update_post' post.id %}" class="btn">Edit</a></button>
+            </form>
+        </div>
+    {% empty %}
+        <p>No posts available.</p>
+    {% endfor %}
+</div>
+</body>
+</html>

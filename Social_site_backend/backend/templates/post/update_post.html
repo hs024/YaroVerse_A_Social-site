@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Post</title>
+    <link rel="stylesheet" href="{% static 'post/style1.css' %}">
+    <style>
+        .media-preview-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.media-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 200px;
+}
+
+.preview-img,
+.preview-video {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+}
+
+    </style>
+</head>
+<body>
+    <h2>Update Post</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <!-- User selection -->
+    <label for="user">Select User:</label>
+    <select name="user" required>
+        <option value="">-- Choose a user --</option>
+        {% for u in users %}
+            <option value="{{ u.id }}" {% if u.id == post.user.id %}selected{% endif %}>
+                {{ u.username }} ({{ u.name }})
+            </option>
+        {% endfor %}
+    </select>
+    <br><br>
+
+    {{ post_form.as_p }}
+
+    <!-- Existing Media Preview -->
+    {% if post.media.all %}
+        <h3>Existing Media</h3>
+        <div class="media-preview-container">
+            {% for media in post.media.all %}
+                <div class="media-item">
+                    {% if media.type == 'image' %}
+                        <img src="{{ media.file.url }}" alt="Image" class="preview-img">
+                    {% elif media.type == 'video' %}
+                        <video controls class="preview-video">
+                            <source src="{{ media.file.url }}" type="video/mp4">
+                        </video>
+                    {% endif %}
+                    <label>
+                        <input type="checkbox" name="remove_media" value="{{ media.id }}">
+                        Remove
+                    </label>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <!-- Add New Media -->
+    <label for="media_files">Add New Media:</label>
+    <input type="file" name="media_files" multiple>
+    <br><br>
+
+    <button type="submit">Update Post</button>
+</form>
+
+</body>
+</html>

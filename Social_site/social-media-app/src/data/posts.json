@@ -1,0 +1,116 @@
+[
+  {
+    "id": 1,
+    "userId": 1,
+    
+    "content": "Excited to join this new social platform! 🚀",
+    "media": [
+      {
+        "type": "image",
+        "url": "/assets/Spiderman Cityscape Wallpaper, Marvel Superhero 4K, Desktop Background.jpeg"
+      }
+    ],
+    "likes": 5,
+    "timestamp": "2025-08-01T10:00:00Z",
+    "comments": [
+      {
+        "id": 1,
+        "userId": 2,
+        "text": "Welcome! 🚀"
+      },
+      {
+        "id": 2,
+        "userId": 3,
+        "text": "Glad to see you here!"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "userId": 2,
+    "content": "Just came back from an amazing trip to the mountains.",
+    "media": [
+      {
+        "type": "image",
+        "url": "/assets/girraf.jpeg"
+      }
+    ],
+    "likes": 8,
+    "timestamp": "2025-08-02T14:30:00Z",
+    "comments": [
+      {
+        "id": 3,
+        "userId": 1,
+        "text": "Looks awesome!"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "userId": 3,
+    "content": "Check out my new blog post about music trends!",
+    "media": [],
+    "likes": 3,
+    "timestamp": "2025-08-03T09:15:00Z",
+    "comments": []
+  },
+  {
+    "id": 4,
+    "userId": 4,
+    "content": "Check out my new blog post about gaming  trends! zelda 💕💞💓💗💖💘❤",
+    "media": [
+      {
+        "type": "image",
+        "url": "/assets/anime-moon-landscape.jpg"
+      }
+    ],
+    "likes": 0,
+    "timestamp": "2025-08-03T09:15:00Z",
+    "comments": []
+  },
+  {
+    "id": 5,
+    "userId": 4,
+    "content": "video trends! zelda 💕💞💓💗💖💘❤",
+    "media": [
+      {
+        "type": "video",
+        "url":"/assets/Hotstar Specials The Legend Of Hanuman Season 3 Coming Soon DisneyPlus Hotstar.mp4"
+      }
+    ],
+    "likes": 0,
+    "timestamp": "2025-08-03T09:15:00Z",
+    "comments": []
+    
+  },
+  {
+    "id": 6,
+    "userId": 7,
+    "content": "audio trends!💕💞💓💗💖💘❤",
+    "media": [
+      {
+        "type": "audio",
+        "url":"/assets/song.mp3"
+      }
+    ],
+    "likes": 0,
+    "timestamp": "2025-08-03T09:15:00Z",
+    "comments": []
+    
+  },
+  {
+    "id": 7,
+    "userId": 7,
+    "content": "video trends!💕💞💓💗💖💘❤",
+    "media": [
+      {
+        "type": "video",
+        "url":"/assets/avatarTrailer.mp4"
+      }
+    ],
+    "likes": 0,
+    "timestamp": "2025-08-03T09:15:00Z",
+    "comments": []
+    
+  }
+]

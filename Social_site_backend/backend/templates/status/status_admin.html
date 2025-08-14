@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Status Admin</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}" />
+  <style>
+    /* Optional inline override for bigger media */
+    td.media-preview img,
+    td.media-preview video {
+      max-width: 200px;   /* larger preview width */
+      max-height: 150px;  /* larger preview height */
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    td.media-preview audio {
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Status Admin Panel</h1>
+  <button><a href="{% url 'home' %}">Home</a></button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>User</th>
+        <th>Avatar</th>
+        <th>Content</th>
+        <th>Media</th>
+        <th>Media Type</th>
+        <th>Created At</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for status in statuses %}
+        <tr>
+          <td>{{ status.id }}</td>
+          <td>{{ status.user.username }}</td>
+          <td>
+            <img src="{{ status.user.avatar.url }}" alt="avatar" width="40" height="40">
+          </td>
+          <td>
+            {% if status.content %}
+              {{ status.content }}
+            {% else %}
+              -
+            {% endif %}
+          </td>
+          <td class="media-preview">
+            {% if status.media_type == "image" %}
+              <img src="{{ status.media_file.url }}" alt="status">
+            {% elif status.media_type == "video" %}
+              <video src="{{ status.media_file.url }}" controls></video>
+            {% elif status.media_type == "audio" %}
+              <audio controls>
+                <source src="{{ status.media_file.url }}">
+              </audio>
+            {% endif %}
+          </td>
+          <td>{{ status.media_type }}</td>
+          <td>{{ status.created_at }}</td>
+          <td>
+            <form method="post">
+              {% csrf_token %}
+              <input type="hidden" name="delete_status_id" value="{{ status.id }}">
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="8">No statuses found.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

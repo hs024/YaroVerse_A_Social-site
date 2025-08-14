@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+  <body>
+    <center>
+      <h1>Welcome to the Home Page</h1>
+      <h2>All users</h2> 
+       <!-- Search Form -->
+  <form method="get" action="">
+    <input type="text" name="q" placeholder="Search by username" value="{{ request.GET.q }}">
+    <button type="submit">Search</button>
+  </form>
+  <br>
+  <button><a href="{% url 'create_user' %}">Create New User</a></button>
+  <button><a href="/posts">Posts</a></button>
+  <button><a href="{% url 'status-admin' %}">Status Admin</a></button>
+<br><br>
+
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Bio</th>
+          <th>Avatar</th>
+          <th>Friends</th>
+          <th>Created At</th>
+          <th>Password</th>
+          <th>Update</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+          <td>{{ user.id }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.bio }}</td>
+          <td>
+    {% if user.avatar %}
+        <img src="{{ user.avatar.url }}" alt="{{ user.username }}'s avatar" width="50" height="50">
+    {% else %}
+        <img src="{% static 'avatar.png' %}" alt="Default avatar" width="50" height="50">
+        default avatar
+    {% endif %}
+</td>
+<td>
+    <ul>
+      {% for friend in user.friends.all %}
+      <li>{{ friend.username }}</li>
+      {% endfor %}
+    </ul>
+</td>
+          </td>
+          <td>{{ user.created_at }}</td>
+          <td>{{ user.password }}</td>
+          <td><button ><a href="{% url 'change' user.id %}">Update</a></button></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </center>
+  </body>
+</html>
