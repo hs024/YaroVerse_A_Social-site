@@ -63,4 +63,4 @@ Built with a **Django REST** backend and a **React + Redux + Tailwind CSS** fron
 ![Feed](screenshots/feedimage.png)
 
 
-> Made with 💜 by Himanshu
+## > Made with 💜 by Himanshu
