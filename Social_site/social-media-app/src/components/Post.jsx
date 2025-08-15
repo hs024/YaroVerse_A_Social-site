@@ -24,7 +24,7 @@ const Post = ({ post, user }) => {
 
   // Simulate current user
   function SafePosturl(url){    
-    return "http://127.0.0.1:8000/"+url;
+    return "https://yaroverse-a-social-site.onrender.com/"+url;
 
   }
   function getSafeAvatarUrl(avatarUrl) {

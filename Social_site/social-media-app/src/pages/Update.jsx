@@ -118,7 +118,7 @@ function Update() {
                   <img
                     src={
                       item?.url?.startsWith("/media/post_media")
-                        ? `http://127.0.0.1:8000${item.url}`
+                        ? `https://yaroverse-a-social-site.onrender.com${item.url}`
                         : item.url // empty or placeholder if no DB image
                     }
                     alt="preview"

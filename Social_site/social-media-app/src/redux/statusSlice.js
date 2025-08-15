@@ -2,7 +2,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:8000/api/status";
+const API_BASE_URL = "https://yaroverse-a-social-site.onrender.com/api/status";
 
 // ======= Async Thunks =======
 

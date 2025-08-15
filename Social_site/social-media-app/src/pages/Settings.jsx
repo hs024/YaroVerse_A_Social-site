@@ -28,7 +28,7 @@ function Settings() {
         avatar: null,
         password: "",
       });
-      setAvatarPreview('http://localhost:8000'+currentUser.avatar || null);
+      setAvatarPreview('https://yaroverse-a-social-site.onrender.com'+currentUser.avatar || null);
     }
   }, [currentUser]);
 

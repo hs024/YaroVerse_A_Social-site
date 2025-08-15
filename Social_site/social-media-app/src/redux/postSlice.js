@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { Form } from "react-router-dom";
 
-const API_BASE_URL = "http://127.0.0.1:8000/api/posts";
+const API_BASE_URL = "https://yaroverse-a-social-site.onrender.com/api/posts";
 
 // Fetch all posts
 export const fetchAllPosts = createAsyncThunk(

@@ -15,7 +15,7 @@ const { users, currentUser, loading, error } = useSelector(
   };
 
   const getsafeurl = (url) => {
-    return "http://127.0.0.1:8000" + url; // Adjust if you change backend base URL
+    return "https://yaroverse-a-social-site.onrender.com" + url; // Adjust if you change backend base URL
   };
 
   // Fallback avatar

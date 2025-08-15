@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const API_BASE_URL = "http://127.0.0.1:8000/api";
+const API_BASE_URL = "https://yaroverse-a-social-site.onrender.com/api";
 const savedUser = localStorage.getItem("currentUser");
 
 
